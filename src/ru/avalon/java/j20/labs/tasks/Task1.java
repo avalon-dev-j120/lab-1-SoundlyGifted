@@ -2,6 +2,7 @@ package ru.avalon.java.j20.labs.tasks;
 
 import ru.avalon.java.j20.labs.Task;
 import ru.avalon.java.j20.labs.core.RandomArrayFactory;
+import ru.avalon.java.j20.labs.core.RandomArrayFactoryDouble;
 import ru.avalon.java.j20.labs.models.Numbers;
 
 /**
@@ -18,16 +19,26 @@ public class Task1 implements Task {
      * Фабрика, создающая массивы случайных чисел.
      */
     private final RandomArrayFactory arrayFactory = new RandomArrayFactory();
+    private final RandomArrayFactoryDouble arrayFactoryDouble = 
+            new RandomArrayFactoryDouble();
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void run() {
-        int[] array = arrayFactory.getInstance(20);
-        int min = Numbers.min(array);
-        int max = Numbers.max(array);
-        double avg = Numbers.avg(array);
+        Integer[] arrayInt = arrayFactory.getInstance(20);
+        Double[] arrayDouble = arrayFactoryDouble.getInstance(20);
+        
+        int minInt = Numbers.min(arrayInt);
+        double minDouble = Numbers.min(arrayDouble);
+        
+        int maxInt = Numbers.max(arrayInt);
+        double maxDouble = Numbers.max(arrayDouble);
+        
+        double avgInt = Numbers.avg(arrayInt);
+        double avgDouble = Numbers.avg(arrayDouble);        
+              
         /*
          * TODO(Студент): Выполните задание №1
          *
