@@ -38,7 +38,7 @@ public class Task1 implements Task {
         
         double avgInt = Numbers.avg(arrayInt);
         double avgDouble = Numbers.avg(arrayDouble);        
-              
+        
         /*
          * TODO(Студент): Выполните задание №1
          *

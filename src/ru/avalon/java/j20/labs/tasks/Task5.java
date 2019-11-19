@@ -6,6 +6,9 @@ import ru.avalon.java.j20.labs.core.RandomArrayFactory;
 import java.util.List;
 import java.util.Set;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 /**
  * Задание №5.
  *
@@ -25,10 +28,15 @@ public class Task5 implements Task {
     public void run() {
         final Integer[] array = arrayFactory.getInstance(20);
 
-        List<Integer> list = null;
+        List<Integer> list = new ArrayList<>();
 
-        Set<Integer> set = null;
+        Set<Integer> set = new HashSet<>();
 
+        for (int i = 0; i < array.length; i++) {
+            list.add(array[i]);
+            set.add(array[i]);
+        }
+                
         /**
          * TODO(Студент): Выполните задание №5
          *

@@ -16,7 +16,8 @@ public class Task3 implements Task {
     public void run() {
         
     Fibonacci fibonacci = new Fibonacci(20);
-        
+    Integer fibSum = fibonacci.fibSum();
+
         /*
          * TODO(Студент): Выполнить задание №3
          *

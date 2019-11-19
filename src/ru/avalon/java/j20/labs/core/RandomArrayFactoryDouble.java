@@ -24,7 +24,6 @@ public class RandomArrayFactoryDouble implements Factory<Double[], Integer> {
     public Double[] getInstance(Integer length) {
         Double[] array = new Double[length];
         for (int i = 0; i < length; i++) {
-//            array[i] = random.nextInt(101);
             array[i] = random.nextDouble();
         }
         return array;
