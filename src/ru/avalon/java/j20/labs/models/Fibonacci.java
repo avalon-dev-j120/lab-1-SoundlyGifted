@@ -21,33 +21,33 @@ public class Fibonacci implements Iterable<Integer> {
     private Integer[] array;
     
     public Fibonacci(int len) {
-    this.array = new Integer[len];    
-    array[0] = 0;
-    array[1] = 1;
-    for (int i = 2; i <= array.length-1; i++) {
+        this.array = new Integer[len];    
+        array[0] = 0;
+        array[1] = 1;
+        for (int i = 2; i <= array.length-1; i++) {
             array[i] = array[i-2] + array[i-1];
         }
     }
         
-    public Integer fibSum(){
-        FibonacciIterator fibIter = (FibonacciIterator) iterator();
-        Integer result = fibIter.currentValue();
-        while (fibIter.hasNext()) {
-            result = result + fibIter.next();
-        }
-        return result;
-    }
-     
+//    public Integer fibSum(){
+//        FibonacciIterator fibIter = (FibonacciIterator) iterator();
+//        Integer result = fibIter.currentValue();
+//        while (fibIter.hasNext()) {
+//            result = result + fibIter.next();
+//        }
+//        return result;
+//    }
+    
     /**
      * Итератор, выполняющий обход последовательности
      * чисел Фибоначчи.
      */
     private static class FibonacciIterator implements Iterator<Integer> {
       
-        Fibonacci fib;
-        public int currentIndex = 0;
+        private Fibonacci fib;
+        private int currentIndex = 0;
        
-        public FibonacciIterator(Fibonacci fib) {
+        private FibonacciIterator(Fibonacci fib) {
             this.fib = fib;
         }
     

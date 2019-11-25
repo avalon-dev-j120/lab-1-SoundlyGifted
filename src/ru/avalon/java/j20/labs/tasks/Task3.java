@@ -15,9 +15,20 @@ public class Task3 implements Task {
     @Override
     public void run() {
         
-    Fibonacci fibonacci = new Fibonacci(20);
-    Integer fibSum = fibonacci.fibSum();
-
+          Integer fibSum = 0;
+        try{
+            Fibonacci fibonacci = new Fibonacci(20);
+//            Integer fibSum = fibonacci.fibSum();
+            
+            for(Integer fib : fibonacci) {
+            fibSum += fib;
+            }
+        }
+        catch(ArrayIndexOutOfBoundsException | NegativeArraySizeException e){
+            System.out.println("Zero or negative fibonacci array length"
+                    + " specified. Please specify a positive length.");
+        }
+        
         /*
          * TODO(Студент): Выполнить задание №3
          *
