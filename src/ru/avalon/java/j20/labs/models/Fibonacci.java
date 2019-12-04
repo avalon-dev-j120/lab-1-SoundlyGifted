@@ -17,13 +17,44 @@ import java.util.Iterator;
  * @see <a href="https://ru.wikipedia.org/wiki/%D0%A7%D0%B8%D1%81%D0%BB%D0%B0_%D0%A4%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8">Числа Фибоначчи</a>
  */
 public class Fibonacci implements Iterable<Integer> {
-
+  
+    private Integer[] array;
+    
+    public Fibonacci(int len) {
+        this.array = new Integer[len];    
+        array[0] = 0;
+        array[1] = 1;
+        for (int i = 2; i <= array.length-1; i++) {
+            array[i] = array[i-2] + array[i-1];
+        }
+    }
+        
+//    public Integer fibSum(){
+//        FibonacciIterator fibIter = (FibonacciIterator) iterator();
+//        Integer result = fibIter.currentValue();
+//        while (fibIter.hasNext()) {
+//            result = result + fibIter.next();
+//        }
+//        return result;
+//    }
+    
     /**
      * Итератор, выполняющий обход последовательности
      * чисел Фибоначчи.
      */
     private static class FibonacciIterator implements Iterator<Integer> {
-
+      
+        private Fibonacci fib;
+        private int currentIndex = 0;
+       
+        private FibonacciIterator(Fibonacci fib) {
+            this.fib = fib;
+        }
+    
+        public Integer currentValue() {
+            return fib.array[currentIndex];
+        }
+        
         /**
          * Определяет, есть ли следующее значение
          * последовательности чисел Фибоначчи.
@@ -34,7 +65,7 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public boolean hasNext() {
-            throw new UnsupportedOperationException("Not implemented yet!");
+            return currentIndex < fib.array.length-1;
         }
 
         /**
@@ -45,7 +76,16 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public Integer next() {
-            throw new UnsupportedOperationException("Not implemented yet!");
+            if (!hasNext()){
+                return null;
+            } else {
+                currentIndex++;
+                return fib.array[currentIndex];          
+            }
+        }
+        
+        public void reset(){
+            currentIndex = 0;
         }
     }
 
@@ -57,6 +97,6 @@ public class Fibonacci implements Iterable<Integer> {
      */
     @Override
     public Iterator<Integer> iterator() {
-        return new FibonacciIterator();
+        return new FibonacciIterator(this);
     }
 }
